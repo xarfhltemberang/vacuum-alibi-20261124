@@ -23,7 +23,8 @@ def main() -> None:
     assert "\n" not in ENTRY, "entry must be a single line"
     os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
     with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
-        f.write(ENTRY)
+        # Exactly one trailing newline so the file ends cleanly.
+        f.write(ENTRY + "\n")
 
 
 if __name__ == "__main__":
